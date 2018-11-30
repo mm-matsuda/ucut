@@ -88,12 +88,15 @@ func main() {
 		var fields []int
 		scanner := bufio.NewScanner(os.Stdin)
 
+		if !context.IsSet("fields") {
+			fmt.Fprintln(os.Stderr, app.Usage)
+			return nil
+		}
+
 		if context.IsSet("delimiter") {
 			Delimiter = context.String("delimiter")
 		}
-		if !context.IsSet("fields") {
 
-		}
 		fields, err := splitFields(context.String("fields"))
 		if err != nil {
 			return err
@@ -111,8 +114,7 @@ func main() {
 		}
 
 		if err := scanner.Err(); err != nil {
-			log.Fatal(err)
-			os.Exit(1)
+			return err
 		}
 
 		return nil
