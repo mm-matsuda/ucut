@@ -1,2 +1,2 @@
 # ucut-dev
-usuful cut
+useful cut
