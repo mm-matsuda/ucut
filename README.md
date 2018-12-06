@@ -1,4 +1,4 @@
-# ucut-dev
+# ucut
 
 useful cut
 
